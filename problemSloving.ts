@@ -18,10 +18,8 @@ type ItemType = {
   rating: number;
 };
 
-const filterByRating = (Item: ItemType[]): object[] => {
-  const items = Item.filter((item) => item.rating >= 4);
-
-  return items;
+const filterByRating = (Item: ItemType[]): ItemType[] => {
+  return Item.filter((item) => item.rating >= 4);
 };
 
 const books: ItemType[] = [
@@ -30,20 +28,21 @@ const books: ItemType[] = [
   { title: "Book C", rating: 5.0 },
 ];
 
-// console.log(filterByRating(books));
+
+console.log(filterByRating(books));
 
 function concatenateArrays<T>(...arrays: T[][]) {
-  console.log(arrays);
+  //console.log(arrays);
   if (arrays.length === 1) {
     return "give two value ";
   }
-  const res = [...arrays[0], ...arrays[1]];
+  const res = arrays.flat();
 
   return res;
 }
 
-const concat1 = concatenateArrays(["a", "b"], ["c"]);
-const concat2 = concatenateArrays([1, 2], [3, 4], [5]);
+// const concat1 = concatenateArrays(["a", "b"], ["l","c"] , ["l","c"] , ["l","c"]);
+// const concat2 = concatenateArrays([1, 2], [3, 4], [5]);
 
 // console.log(concat1);
 // console.log(concat2);
@@ -77,8 +76,8 @@ class Car extends Vehicle {
 }
 
 const myCar = new Car("Toyota", 2020, "Corolla");
-// console.log(myCar.getInfo());
-// console.log(myCar.getModel());
+// //console.log(myCar.getInfo());
+// //console.log(myCar.getModel());
 
 const processValue = (value: string | number): number => {
   if (typeof value === "string") {
@@ -91,8 +90,8 @@ const processValue = (value: string | number): number => {
 const processValue1 = processValue("mehedi");
 const processValue2 = processValue(2);
 
-// console.log("length", processValue1);
-// console.log("multipy", processValue2);
+// //console.log("length", processValue1);
+// //console.log("multipy", processValue2);
 
 interface Product {
   name: string;
@@ -125,7 +124,7 @@ const products: Product[] = [
 
 const mostExpensive = getMostExpensiveProduct(products);
 
-console.log("mostExpensive", mostExpensive);
+//console.log("mostExpensive", mostExpensive);
 
 enum Day {
   Monday,
@@ -148,9 +147,9 @@ const getDayType = (day: Day): string => {
 };
 
 const day1 = getDayType(Day.Friday);
-//   console.log(day1)
+//   //console.log(day1)
 const day2 = getDayType(Day.Wednesday);
-//   console.log(day2)
+//   //console.log(day2)
 
 const squareAsync = (value: number): Promise<number> => {
   return new Promise((resolve, reject) => {
@@ -165,5 +164,5 @@ const squareAsync = (value: number): Promise<number> => {
 };
 
 
-// squareAsync(4).then(console.log);
-// squareAsync(-4).then(console.log);
+// squareAsync(4).then(//console.log);
+// squareAsync(-4).then(//console.log);
